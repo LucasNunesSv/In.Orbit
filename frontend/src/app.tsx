@@ -1,6 +1,7 @@
 import logo from "./assets/logo-text-in-orbit-png.png";
 import illustration from "./assets/lets-start-illustration.png";
 import { Plus } from "lucide-react";
+import { Button } from "./components/ui/button";
 
 export function App() {
   return (
@@ -15,10 +16,10 @@ export function App() {
         Você não cadastrou nenhuma meta ainda, que tal cadastrar uma agora
         mesmo?
       </p>
-      <button type="button" className="text-zinc-100 px-4 py-2.5 rounded-lg bg-sky-500 flex items-center gap-2 text-sm font-medium tracking-tight hover:bg-sky-600 transition duration-300">
+      <Button variant="primary">
         <Plus className="size-4" />
         Cadastrar meta
-      </button>
+      </Button>
     </div>
   );
 }
