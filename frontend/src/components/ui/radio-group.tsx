@@ -23,7 +23,7 @@ export function RadioGroupIndicator() {
   return (
     <>
       <Circle className="size-4 text-zinc-600 group-data-[state=checked]:hidden" />
-      <CheckCircle2 className="size-4 text-pink-500 hidden group-data-[state=checked]:inline" />
+      <CheckCircle2 className="size-4 text-teal-300 hidden group-data-[state=checked]:inline" />
     </>
   )
 }

@@ -12,7 +12,11 @@ import {
 } from "./components/ui/dialog";
 import { Label } from "./components/ui/label";
 import { Input } from "./components/ui/input";
-import { RadioGroup, RadioGroupItem } from "./components/ui/radio-group";
+import {
+  RadioGroup,
+  RadioGroupIndicator,
+  RadioGroupItem,
+} from "./components/ui/radio-group";
 
 export function App() {
   return (
@@ -36,7 +40,7 @@ export function App() {
         </DialogTrigger>
       </div>
       <DialogContent>
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col h-full gap-6">
           <div className="flex flex-col gap-3 ">
             <div className="flex items-center justify-between">
               <DialogTitle>Cadastrar meta</DialogTitle>
@@ -53,12 +57,29 @@ export function App() {
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-2">
                 <Label htmlFor="title">Qual será a atividade?</Label>
-                <Input autoFocus placeholder="Praticar exercícios, ler um livro, estudar, etc.." />
+                <Input
+                  autoFocus
+                  placeholder="Praticar exercícios, ler um livro, estudar, etc.."
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <Label htmlFor="title">Quantas vezes na semana?</Label>
                 <RadioGroup>
-                  <RadioGroupItem value="1">1x na semana</RadioGroupItem>
+                  <RadioGroupItem value="1">
+                    <RadioGroupIndicator />
+                    <span className="text-zinc-300 text-sm font-medium leading-none">1x na semana</span>
+                    <span className="text-lg leading-none">🥱</span>
+                  </RadioGroupItem>
+                  <RadioGroupItem value="1">
+                    <RadioGroupIndicator />
+                    <span className="text-zinc-300 text-sm font-medium leading-none">1x na semana</span>
+                    <span className="text-lg leading-none">🥱</span>
+                  </RadioGroupItem>
+                  <RadioGroupItem value="1">
+                    <RadioGroupIndicator />
+                    <span className="text-zinc-300 text-sm font-medium leading-none">1x na semana</span>
+                    <span className="text-lg leading-none">🥱</span>
+                  </RadioGroupItem>
                 </RadioGroup>
               </div>
             </div>
