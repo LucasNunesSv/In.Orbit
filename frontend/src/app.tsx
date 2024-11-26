@@ -1,36 +1,21 @@
 import { Dialog } from "./components/ui/dialog";
 import { CreateGoal } from "./components/create-goal";
 import { Summary } from "./components/summary";
-import { useEffect, useState } from "react";
 import { EmptyGoal } from "./components/empty-goal";
-
-type SummaryResposne = {
-    completed: number;
-    total: number;
-    goalsPerDay: Record<string, {
-        id: string;
-        title: string;
-        completedAt: string;
-    }[]>;
-}
+import { useQuery } from "@tanstack/react-query";
+import { getSummary } from "./http/getSummary";
 
 export function App() {
-  
-  const [summary, setSummary] = useState<SummaryResposne | null>(null);
 
-  useEffect(() => {
-    fetch("http://localhost:3333/summary")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        setSummary(data.summary);
-      });
-  }, []);
+  const { data } = useQuery({
+    queryKey: ["summary"],
+    queryFn: getSummary,
+  });
 
   return (
     <Dialog>
-      {summary?.total && summary.total > 0 ? <Summary /> : <EmptyGoal />}
+
+    {data?.total && data.total > 0 ? <Summary/> : <EmptyGoal />}
 
       <CreateGoal />
     </Dialog>
