@@ -3,10 +3,9 @@ import { CreateGoal } from "./components/create-goal";
 import { Summary } from "./components/summary";
 import { EmptyGoal } from "./components/empty-goal";
 import { useQuery } from "@tanstack/react-query";
-import { getSummary } from "./http/getSummary";
+import { getSummary } from "./http/get-summary";
 
 export function App() {
-
   const { data } = useQuery({
     queryKey: ["summary"],
     queryFn: getSummary,
@@ -14,8 +13,7 @@ export function App() {
 
   return (
     <Dialog>
-
-    {data?.total && data.total > 0 ? <Summary/> : <EmptyGoal />}
+      {data?.total && data.total > 0 ? <Summary /> : <EmptyGoal />}
 
       <CreateGoal />
     </Dialog>
